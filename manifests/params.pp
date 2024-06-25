@@ -69,12 +69,12 @@ class sysadmins::params {
     #### MODULE INTERNAL VARIABLES  #########
     # (Modify to adapt to unsupported OSes)
     #######################################
-    $homebasedir = $::osfamily ?  {
+    $homebasedir = $facts['os']['family'] ?  {
         'Redhat' => '/home',      # Simpler to handle SELinux on Redhat-like systems
         default  => '/var/lib'
     }
 
-    $base_groups = $::osfamily ? {
+    $base_groups = $facts['os']['family'] ? {
         'Redhat' => [ 'wheel'],
         'Debian' => [ 'adm' ],
         default  => []
@@ -86,7 +86,7 @@ class sysadmins::params {
     #     default => []
     # }
 
-    $configdir_mode = $::operatingsystem ? {
+    $configdir_mode = $facts['os']['name'] ? {
         default => '0700',
     }
     # $configdir_owner = $::operatingsystem ? {
@@ -96,10 +96,10 @@ class sysadmins::params {
     #     default => 'root',
     # }
 
-    $configfile = $::operatingsystem ? {
+    $configfile = $facts['os']['name'] ? {
         default => '.sysadminrc',
     }
-    $configfile_mode = $::operatingsystem ? {
+    $configfile_mode = $facts['os']['name'] ? {
         default => '0644',
     }
 

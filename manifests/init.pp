@@ -62,11 +62,11 @@ inherits sysadmins::params
         fail("sysadmins 'ensure' parameter must be set to either 'absent' or 'present'")
     }
 
-    case $::operatingsystem {
+    case $facts['os']['name'] {
         'debian', 'ubuntu':         { include sysadmins::common::debian }
         'redhat', 'fedora', 'centos', 'rocky': { include sysadmins::common::redhat }
         default: {
-            fail("Module ${module_name} is not supported on ${::operatingsystem}")
+            fail("Module ${module_name} is not supported on ${facts['os']['name']}")
         }
     }
 }
