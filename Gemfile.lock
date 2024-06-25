@@ -160,13 +160,7 @@ GEM
     oga (3.4)
       ast
       ruby-ll (~> 2.1)
-<<<<<<< HEAD
-||||||| bdc28f5
-    open_uri_redirections (0.2.1)
-=======
-    open_uri_redirections (0.2.1)
-    parallel (1.23.0)
->>>>>>> origin/devel
+    parallel (1.25.1)
     parser (2.7.2.0)
       ast (~> 2.4.1)
     pathspec (1.0.0)
